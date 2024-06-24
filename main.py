@@ -21,15 +21,15 @@ magazyny = [
 ]
 
 pracownicy = [
-    ("Jan Kowalski", "52.2401,21.0206", 0),
-    ("Anna Nowak", "52.2409,21.0203", 0),
-    ("Piotr Wiśniewski", "52.2412,21.0157", 0),
-    ("Marek Zalewski", "52.2323,21.0204", 1),
-    ("Magda Kowalczyk", "52.2326,21.0203", 1),
-    ("Jacek Wójcik", "52.2325,21.0209", 1),
-    ("Paweł Zieliński", "52.2280,21.0120", 2),
-    ("Katarzyna Kwiatkowska", "52.2284,21.0117", 2),
-    ("Krzysztof Zając", "52.2289,21.0117", 2),
+    ("Karol Karolczak", "52.2401,21.0206", 0),
+    ("Hanna Ana", "52.2409,21.0203", 0),
+    ("Józef Król", "52.2412,21.0157", 0),
+    ("Nikola Grzegrzółka", "52.2323,21.0204", 1),
+    ("Magda Gejzer", "52.2326,21.0203", 1),
+    ("Dariusz Brzęczyszczykiewicz", "52.2325,21.0209", 1),
+    ("Grzegorz Maczuga", "52.2280,21.0120", 2),
+    ("Genowefa Jeżykowska", "52.2284,21.0117", 2),
+    ("Piotr Glukoza", "52.2289,21.0117", 2),
 ]
 
 # Funkcje
