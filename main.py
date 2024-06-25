@@ -32,11 +32,12 @@ pracownicy = [
     ("Piotr Glukoza", "52.2289,21.0117", 2),
 ]
 
-# Funkcje
 
+# Funkcje
 def dodaj_do_listy(lista, item, coords, museum_id=None):
     lista.append((item, coords, museum_id))
     print("Dodano element do listy!")
+
 
 def wyswietl_liste(lista):
     if not lista:
@@ -44,6 +45,7 @@ def wyswietl_liste(lista):
     else:
         for i, (item, coords, *_) in enumerate(lista, start=1):
             print(f"{i}. {item} - {coords}")
+
 
 def wyswietl_magazyny_dla_muzeum():
     muzeum = int(input("Podaj numer muzeum: ")) - 1
@@ -56,6 +58,7 @@ def wyswietl_magazyny_dla_muzeum():
     else:
         print("Niepoprawny numer muzeum!")
 
+
 def wyswietl_pracownikow_dla_muzeum():
     muzeum = int(input("Podaj numer muzeum: ")) - 1
     if 0 <= muzeum < len(muzea):
@@ -67,6 +70,7 @@ def wyswietl_pracownikow_dla_muzeum():
     else:
         print("Niepoprawny numer muzeum!")
 
+
 def usun_element(lista):
     item = int(input("Podaj numer elementu do usunięcia: ")) - 1
     if 0 <= item < len(lista):
@@ -74,6 +78,7 @@ def usun_element(lista):
         print("Usunięto element z listy!")
     else:
         print("Element nie znaleziony!")
+
 
 def aktualizuj_element(lista, czy_muzea=False):
     item = int(input("Podaj numer elementu do aktualizacji: ")) - 1
@@ -87,6 +92,7 @@ def aktualizuj_element(lista, czy_muzea=False):
         print("Zaktualizowano element!")
     else:
         print("Element nie znaleziony!")
+
 
 def generuj_mape():
     mapa = folium.Map(location=[52.2297, 21.0122], zoom_start=12)
@@ -109,15 +115,17 @@ def generuj_mape():
     # Otwórz mapę w przeglądarce
     webbrowser.open("mapa.html")
 
+
 # Logowanie
 def zaloguj():
     user = input("Użytkownik: ")
     password = input("Hasło: ")
-    if user == "admin" and password == "password":
+    if user == "Ala" and password == "haslo":
         print("Zalogowano pomyślnie!")
         otworz_panel_glowny()
     else:
         print("Niepoprawne dane logowania!")
+
 
 # Panel główny
 def otworz_panel_glowny():
@@ -203,6 +211,7 @@ def otworz_panel_glowny():
             break
         else:
             print("Niepoprawna opcja!")
+
 
 if __name__ == "__main__":
     zaloguj()
