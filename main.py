@@ -1,7 +1,8 @@
 import folium
 import webbrowser
+from geopy.geocoders import Nominatim
 
-# Dane z zróżnicowanymi współrzędnymi
+# Dane początkowe
 muzea = [
     ("Muzeum łyżek", "52.2407,21.0202"),
     ("Muzeum Kur", "52.2324,21.0208"),
@@ -32,11 +33,27 @@ pracownicy = [
     ("Piotr Glukoza", "52.2289,21.0117", 2),
 ]
 
+# Geolocator
+geolocator = Nominatim(user_agent="geoapiExercises")
+
 
 # Funkcje
-def dodaj_do_listy(lista, item, coords, museum_id=None):
-    lista.append((item, coords, museum_id))
-    print("Dodano element do listy!")
+def pobierz_wspolrzedne(miejscowosc):
+    location = geolocator.geocode(miejscowosc)
+    if location:
+        return location.latitude, location.longitude
+    else:
+        print(f"Nie znaleziono lokalizacji dla {miejscowosc}!")
+        return None
+
+
+def dodaj_do_listy(lista, item, miejscowosc, museum_id=None):
+    wspolrzedne = pobierz_wspolrzedne(miejscowosc)
+    if wspolrzedne:
+        lista.append((item, f"{wspolrzedne[0]},{wspolrzedne[1]}", museum_id))
+        print(f"Dodano element {item} do listy!")
+    else:
+        print("Nie można dodać elementu do listy bez współrzędnych!")
 
 
 def wyswietl_liste(lista):
@@ -47,7 +64,37 @@ def wyswietl_liste(lista):
             print(f"{i}. {item} - {coords}")
 
 
+def usun_element(lista):
+    wyswietl_liste(lista)
+    item = int(input("Podaj numer elementu do usunięcia: ")) - 1
+    if 0 <= item < len(lista):
+        del lista[item]
+        print("Usunięto element z listy!")
+    else:
+        print("Element nie znaleziony!")
+
+
+def aktualizuj_element(lista, czy_muzea=False):
+    wyswietl_liste(lista)
+    item = int(input("Podaj numer elementu do aktualizacji: ")) - 1
+    if 0 <= item < len(lista):
+        new_item = input("Podaj nową wartość: ")
+        miejscowosc = input("Podaj nową miejscowość: ")
+        wspolrzedne = pobierz_wspolrzedne(miejscowosc)
+        if wspolrzedne:
+            if czy_muzea:
+                lista[item] = (new_item, f"{wspolrzedne[0]},{wspolrzedne[1]}")
+            else:
+                lista[item] = (new_item, f"{wspolrzedne[0]},{wspolrzedne[1]}", lista[item][2])
+            print("Zaktualizowano element!")
+        else:
+            print("Nie znaleziono lokalizacji!")
+    else:
+        print("Element nie znaleziony!")
+
+
 def wyswietl_magazyny_dla_muzeum():
+    wyswietl_liste(muzea)
     muzeum = int(input("Podaj numer muzeum: ")) - 1
     if 0 <= muzeum < len(muzea):
         muzeum_nazwa = muzea[muzeum][0]
@@ -60,6 +107,7 @@ def wyswietl_magazyny_dla_muzeum():
 
 
 def wyswietl_pracownikow_dla_muzeum():
+    wyswietl_liste(muzea)
     muzeum = int(input("Podaj numer muzeum: ")) - 1
     if 0 <= muzeum < len(muzea):
         muzeum_nazwa = muzea[muzeum][0]
@@ -71,31 +119,8 @@ def wyswietl_pracownikow_dla_muzeum():
         print("Niepoprawny numer muzeum!")
 
 
-def usun_element(lista):
-    item = int(input("Podaj numer elementu do usunięcia: ")) - 1
-    if 0 <= item < len(lista):
-        del lista[item]
-        print("Usunięto element z listy!")
-    else:
-        print("Element nie znaleziony!")
-
-
-def aktualizuj_element(lista, czy_muzea=False):
-    item = int(input("Podaj numer elementu do aktualizacji: ")) - 1
-    if 0 <= item < len(lista):
-        new_item = input("Podaj nową nazwę: ")
-        new_coords = input("Podaj nowe współrzędne: ")
-        if czy_muzea:
-            lista[item] = (new_item, new_coords)
-        else:
-            lista[item] = (new_item, new_coords, lista[item][2])
-        print("Zaktualizowano element!")
-    else:
-        print("Element nie znaleziony!")
-
-
 def generuj_mape():
-    mapa = folium.Map(location=[52.2297, 21.0122], zoom_start=12)
+    mapa = folium.Map(location=[52.2297, 21.0122], zoom_start=6)
 
     for muzeum, coords in muzea:
         lat, lon = map(float, coords.split(","))
@@ -120,7 +145,7 @@ def generuj_mape():
 def zaloguj():
     user = input("Użytkownik: ")
     password = input("Hasło: ")
-    if user == "Ala" and password == "haslo":
+    if user == "Ala" and password == "programowanie":
         print("Zalogowano pomyślnie!")
         otworz_panel_glowny()
     else:
@@ -130,7 +155,7 @@ def zaloguj():
 # Panel główny
 def otworz_panel_glowny():
     while True:
-        print("\n--- Panel Główny ---")
+        print("--- Panel Główny ---")
         print("1. Dodaj muzeum")
         print("2. Wyświetl muzea")
         print("3. Usuń muzeum")
@@ -151,16 +176,7 @@ def otworz_panel_glowny():
         choice = input("Wybierz opcję: ")
 
         if choice == "1":
-            nazwa_muzeum = input("Podaj nazwę muzeum: ")
-            wspolrzedne_muzeum = input("Podaj współrzędne muzeum (np. 52.2410,21.0205): ")
-            muzea.append((nazwa_muzeum, wspolrzedne_muzeum))
-            print("Dodano muzeum!")
-
-            # Przypisanie przykładowych magazynów i pracowników do nowo dodanego muzeum
-            id_muzeum = len(muzea) - 1
-            for i in range(3):
-                magazyny.append((f"Magazyn_{i+1} dla {nazwa_muzeum}", "52.2410,21.0205", id_muzeum))
-                pracownicy.append((f"Pracownik_{i+1} dla {nazwa_muzeum}", "52.2410,21.0205", id_muzeum))
+            dodaj_do_listy(muzea, input("Podaj nazwę muzeum: "), input("Podaj miejscowość muzeum: "))
         elif choice == "2":
             wyswietl_liste(muzea)
         elif choice == "3":
@@ -168,16 +184,7 @@ def otworz_panel_glowny():
         elif choice == "4":
             aktualizuj_element(muzea, czy_muzea=True)
         elif choice == "5":
-            nazwa_magazynu = input("Podaj nazwę magazynu: ")
-            wspolrzedne_magazynu = input("Podaj współrzędne magazynu (np. 52.2410,21.0205): ")
-            print("Wybierz muzeum z listy:")
-            wyswietl_liste(muzea)
-            id_muzeum = int(input("Podaj numer muzeum: ")) - 1
-            if 0 <= id_muzeum < len(muzea):
-                magazyny.append((nazwa_magazynu, wspolrzedne_magazynu, id_muzeum))
-                print("Dodano magazyn!")
-            else:
-                print("Niepoprawny numer muzeum!")
+            dodaj_do_listy(magazyny, input("Podaj nazwę magazynu: "), input("Podaj miejscowość magazynu: "), int(input("Podaj numer muzeum, do którego przypisać magazyn: ")) - 1)
         elif choice == "6":
             wyswietl_magazyny_dla_muzeum()
         elif choice == "7":
@@ -185,16 +192,7 @@ def otworz_panel_glowny():
         elif choice == "8":
             aktualizuj_element(magazyny)
         elif choice == "9":
-            nazwa_pracownika = input("Podaj nazwę pracownika: ")
-            wspolrzedne_pracownika = input("Podaj współrzędne pracownika (np. 52.2410,21.0205): ")
-            print("Wybierz muzeum z listy:")
-            wyswietl_liste(muzea)
-            id_muzeum = int(input("Podaj numer muzeum: ")) - 1
-            if 0 <= id_muzeum < len(muzea):
-                pracownicy.append((nazwa_pracownika, wspolrzedne_pracownika, id_muzeum))
-                print("Dodano pracownika!")
-            else:
-                print("Niepoprawny numer muzeum!")
+            dodaj_do_listy(pracownicy, input("Podaj imię i nazwisko pracownika: "), input("Podaj miejscowość pracownika: "), int(input("Podaj numer muzeum, do którego przypisać pracownika: ")) - 1)
         elif choice == "10":
             wyswietl_pracownikow_dla_muzeum()
         elif choice == "11":
