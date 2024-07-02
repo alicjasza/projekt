@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c34a0b8c00697cc10efdd0aecdc7c3c8 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c34a0b8c00697cc10efdd0aecdc7c3c8" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c34a0b8c00697cc10efdd0aecdc7c3c8 = L.map(
+                "map_c34a0b8c00697cc10efdd0aecdc7c3c8",
+                {
+                    center: [52.2297, 21.0122],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_68df65d6c9220a5b5ba7f4c82bcd6e7e = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_68df65d6c9220a5b5ba7f4c82bcd6e7e.addTo(map_c34a0b8c00697cc10efdd0aecdc7c3c8);
+        
+    
+            var marker_95cb4756424a21f36c6b397575382e3b = L.marker(
+                [52.23199, 21.01859],
+                {}
+            ).addTo(map_c34a0b8c00697cc10efdd0aecdc7c3c8);
+        
+    
+            var icon_5c36186a11f3049c913f011cccb01a82 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_95cb4756424a21f36c6b397575382e3b.setIcon(icon_5c36186a11f3049c913f011cccb01a82);
+        
+    
+        var popup_5363bc2dda2a64576704def6264e6bed = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d6c33870c2aa6d4c341b525f2cb0150e = $(`<div id="html_d6c33870c2aa6d4c341b525f2cb0150e" style="width: 100.0%; height: 100.0%;">muzeum łyżek</div>`)[0];
+                popup_5363bc2dda2a64576704def6264e6bed.setContent(html_d6c33870c2aa6d4c341b525f2cb0150e);
+            
+        
+
+        marker_95cb4756424a21f36c6b397575382e3b.bindPopup(popup_5363bc2dda2a64576704def6264e6bed)
+        ;
+
+        
+    
+    
+            var marker_10d9aa2743615ba43fdb9bdd4c2814b3 = L.marker(
+                [52.2332, 20.9794],
+                {}
+            ).addTo(map_c34a0b8c00697cc10efdd0aecdc7c3c8);
+        
+    
+            var icon_f7e1918bd2a8a78b8178f7d5d739acdc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_10d9aa2743615ba43fdb9bdd4c2814b3.setIcon(icon_f7e1918bd2a8a78b8178f7d5d739acdc);
+        
+    
+        var popup_2ee261d8d423d8755750f12d674a5739 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ce3903e95d228d06edb81fe36b38020e = $(`<div id="html_ce3903e95d228d06edb81fe36b38020e" style="width: 100.0%; height: 100.0%;">Muzeum misek</div>`)[0];
+                popup_2ee261d8d423d8755750f12d674a5739.setContent(html_ce3903e95d228d06edb81fe36b38020e);
+            
+        
+
+        marker_10d9aa2743615ba43fdb9bdd4c2814b3.bindPopup(popup_2ee261d8d423d8755750f12d674a5739)
+        ;
+
+        
+    
+    
+            var marker_e21cb02d1ae7ba7093ad88bdaf5b748c = L.marker(
+                [52.2297, 21.0117],
+                {}
+            ).addTo(map_c34a0b8c00697cc10efdd0aecdc7c3c8);
+        
+    
+            var icon_663c4220a0fb793d2d14c03e98c67fec = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_e21cb02d1ae7ba7093ad88bdaf5b748c.setIcon(icon_663c4220a0fb793d2d14c03e98c67fec);
+        
+    
+        var popup_f5b74a62faa56dca21f5ea38cdfb0df6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_19ec47bf65e4fef710f23ad261634f74 = $(`<div id="html_19ec47bf65e4fef710f23ad261634f74" style="width: 100.0%; height: 100.0%;">Magazyn 1 (muzeum łyżek)</div>`)[0];
+                popup_f5b74a62faa56dca21f5ea38cdfb0df6.setContent(html_19ec47bf65e4fef710f23ad261634f74);
+            
+        
+
+        marker_e21cb02d1ae7ba7093ad88bdaf5b748c.bindPopup(popup_f5b74a62faa56dca21f5ea38cdfb0df6)
+        ;
+
+        
+    
+    
+            var marker_207a9cc32c36ee3c4f29b17c20eb490d = L.marker(
+                [52.2043, 21.0219],
+                {}
+            ).addTo(map_c34a0b8c00697cc10efdd0aecdc7c3c8);
+        
+    
+            var icon_96149837d16e53d1a4c32cb9609f7738 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_207a9cc32c36ee3c4f29b17c20eb490d.setIcon(icon_96149837d16e53d1a4c32cb9609f7738);
+        
+    
+        var popup_a04822a587658c7da3fab7dc0040d9bc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8020fac729699618112c7bcec5964c98 = $(`<div id="html_8020fac729699618112c7bcec5964c98" style="width: 100.0%; height: 100.0%;">Magazyn 2 (muzeum łyżek)</div>`)[0];
+                popup_a04822a587658c7da3fab7dc0040d9bc.setContent(html_8020fac729699618112c7bcec5964c98);
+            
+        
+
+        marker_207a9cc32c36ee3c4f29b17c20eb490d.bindPopup(popup_a04822a587658c7da3fab7dc0040d9bc)
+        ;
+
+        
+    
+    
+            var marker_edc3b3d1621e0859288afc8635fb274b = L.marker(
+                [52.2329, 20.9824],
+                {}
+            ).addTo(map_c34a0b8c00697cc10efdd0aecdc7c3c8);
+        
+    
+            var icon_ad67b02c08fa5d58c98b6219ce52fded = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_edc3b3d1621e0859288afc8635fb274b.setIcon(icon_ad67b02c08fa5d58c98b6219ce52fded);
+        
+    
+        var popup_9fa29515f188207d2d8a16e85a0140cf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ab2ada1605405fe14efbbb124a0260e3 = $(`<div id="html_ab2ada1605405fe14efbbb124a0260e3" style="width: 100.0%; height: 100.0%;">Magazyn 3 (Muzeum misek)</div>`)[0];
+                popup_9fa29515f188207d2d8a16e85a0140cf.setContent(html_ab2ada1605405fe14efbbb124a0260e3);
+            
+        
+
+        marker_edc3b3d1621e0859288afc8635fb274b.bindPopup(popup_9fa29515f188207d2d8a16e85a0140cf)
+        ;
+
+        
+    
+    
+            var marker_a1d0b0473813f32311cb8b42e1dcfc4d = L.marker(
+                [52.23199, 21.01859],
+                {}
+            ).addTo(map_c34a0b8c00697cc10efdd0aecdc7c3c8);
+        
+    
+            var icon_4a0b6a2c5e9bd797d11ae255f1ae38b2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_a1d0b0473813f32311cb8b42e1dcfc4d.setIcon(icon_4a0b6a2c5e9bd797d11ae255f1ae38b2);
+        
+    
+        var popup_ec22f3ca911bb2de44a7deb3b496146c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_aae2dc83c2a46c03f4476022e29c8587 = $(`<div id="html_aae2dc83c2a46c03f4476022e29c8587" style="width: 100.0%; height: 100.0%;">Pracownicy: Michał Lewandowski, Zofia Kaczmarek</div>`)[0];
+                popup_ec22f3ca911bb2de44a7deb3b496146c.setContent(html_aae2dc83c2a46c03f4476022e29c8587);
+            
+        
+
+        marker_a1d0b0473813f32311cb8b42e1dcfc4d.bindPopup(popup_ec22f3ca911bb2de44a7deb3b496146c)
+        ;
+
+        
+    
+    
+            var marker_fdf6ff92b6662e0703abd19eae734054 = L.marker(
+                [52.2332, 20.9794],
+                {}
+            ).addTo(map_c34a0b8c00697cc10efdd0aecdc7c3c8);
+        
+    
+            var icon_66b4404ebbda757c0c7a2b5bf95a1d1c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_fdf6ff92b6662e0703abd19eae734054.setIcon(icon_66b4404ebbda757c0c7a2b5bf95a1d1c);
+        
+    
+        var popup_ac6a4e1f6848c9692b1486ad924272f9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_85946166221744e5798e0c5125bc6c09 = $(`<div id="html_85946166221744e5798e0c5125bc6c09" style="width: 100.0%; height: 100.0%;">Pracownicy: Katarzyna Zielińska, Jagoda Kwiatkowska</div>`)[0];
+                popup_ac6a4e1f6848c9692b1486ad924272f9.setContent(html_85946166221744e5798e0c5125bc6c09);
+            
+        
+
+        marker_fdf6ff92b6662e0703abd19eae734054.bindPopup(popup_ac6a4e1f6848c9692b1486ad924272f9)
+        ;
+
+        
+    
+</script>
+</html>

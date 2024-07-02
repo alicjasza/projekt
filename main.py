@@ -10,39 +10,42 @@ muzea = [
 
 magazyny = {
     "muzeum łyżek": [
-        {"nazwa": "Magazyn 1", "adres": "ul. Marszałkowska 10, Warszawa", "współrzędne": "52.2297, 21.0117"},
-        {"nazwa": "Magazyn 2", "adres": "ul. Puławska 15, Warszawa", "współrzędne": "52.2043, 21.0219"}
+        {"nazwa": "magazyn 1", "adres": "ul. Marszałkowska 10, Warszawa", "współrzędne": "52.2297, 21.0117"},
+        {"nazwa": "magazyn 2", "adres": "ul. Puławska 15, Warszawa", "współrzędne": "52.2043, 21.0219"}
     ],
-    "Muzeum misek": [
-        {"nazwa": "Magazyn 3", "adres": "ul. Prosta 20, Warszawa", "współrzędne": "52.2329, 20.9824"}
+    "muzeum misek": [
+        {"nazwa": "magazyn 3", "adres": "ul. Prosta 20, Warszawa", "współrzędne": "52.2329, 20.9824"}
     ]
 }
 
 pracownicy = {
     "muzeum łyżek": ["Michał Lewandowski", "Zofia Kaczmarek"],
-    "Muzeum misek": ["Katarzyna Zielińska"]
+    "muzeum misek": ["Katarzyna Zielińska"]
 }
 
 geolocator = Nominatim(user_agent="muzeum_locator")
+
 
 # Logowanie
 def login():
     print("Witaj w systemie zarządzania muzeami.")
     nazwa_uzytkownika = input("Podaj nazwę użytkownika: ")
     haslo = input("Podaj hasło dostępu: ")
-    print(f"Próba logowania jako: {nazwa_uzytkownika}, hasło: {haslo}")  # Dodatkowe informacje diagnostyczne
-    if nazwa_uzytkownika == "admin" and haslo == "admin":
+    print(f"Próba logowania jako: {nazwa_uzytkownika}, hasło: {haslo}")
+    if nazwa_uzytkownika == "ala" and haslo == "programowanie":
         print("Zalogowano pomyślnie.")
         return True
     else:
         print("Niepoprawna nazwa użytkownika lub hasło.")
         return False
 
+
 # Funkcja read
 def read_muzea():
     print("Lista muzeów:")
     for muzeum in muzea:
         print(f"{muzeum['nazwa']}, adres: {muzeum['adres']}, współrzędne: {muzeum.get('współrzędne', 'Brak')}")
+
 
 def read_magazyny(muzeum):
     if muzeum in magazyny:
@@ -52,6 +55,7 @@ def read_magazyny(muzeum):
     else:
         print("Nie znaleziono muzeum o podanej nazwie.")
 
+
 def read_pracownicy(muzeum):
     if muzeum in pracownicy:
         print(f"Pracownicy {muzeum}:")
@@ -59,6 +63,7 @@ def read_pracownicy(muzeum):
             print(f"- {pracownik}")
     else:
         print("Nie znaleziono muzeum o podanej nazwie.")
+
 
 # Funkcja create
 def create_muzea(nazwa, adres):
@@ -69,6 +74,7 @@ def create_muzea(nazwa, adres):
         print(f"Dodano muzeum: {nazwa}, adres: {adres}, współrzędne: {wspolrzedne}")
     else:
         print(f"Nie udało się pobrać współrzędnych dla adresu: {adres}")
+
 
 def create_magazyny(muzeum, nazwa_magazynu, adres_magazynu):
     location = geolocator.geocode(adres_magazynu)
@@ -87,12 +93,14 @@ def create_magazyny(muzeum, nazwa_magazynu, adres_magazynu):
     else:
         print(f"Nie udało się pobrać współrzędnych dla adresu: {adres_magazynu}")
 
+
 def create_pracownicy(muzeum, pracownik):
     if muzeum in pracownicy:
         pracownicy[muzeum].append(pracownik)
     else:
         pracownicy[muzeum] = [pracownik]
     print(f"Dodano pracownika {pracownik} do muzeum {muzeum}")
+
 
 # Funkcja update
 def update_muzea(nazwa, nowa_nazwa, nowy_adres, nowa_miejscowosc):
@@ -109,6 +117,7 @@ def update_muzea(nazwa, nowa_nazwa, nowy_adres, nowa_miejscowosc):
         print("Nie znaleziono muzeum o podanej nazwie.")
     else:
         print(f"Nie udało się pobrać współrzędnych dla adresu: {nowy_adres}, miejscowość: {nowa_miejscowosc}")
+
 
 def update_magazyny(muzeum, stara_nazwa_magazynu, nowa_nazwa_magazynu, nowy_adres_magazynu):
     if muzeum in magazyny:
@@ -129,6 +138,7 @@ def update_magazyny(muzeum, stara_nazwa_magazynu, nowa_nazwa_magazynu, nowy_adre
     else:
         print(f"Nie znaleziono muzeum {muzeum}")
 
+
 def update_pracownicy(muzeum, stary_pracownik, nowy_pracownik):
     if muzeum in pracownicy:
         if stary_pracownik in pracownicy[muzeum]:
@@ -138,6 +148,7 @@ def update_pracownicy(muzeum, stary_pracownik, nowy_pracownik):
             print(f"Nie znaleziono pracownika {stary_pracownik} w muzeum {muzeum}")
     else:
         print(f"Nie znaleziono muzeum {muzeum}")
+
 
 # Funkcja remove
 def remove_muzea(nazwa):
@@ -149,6 +160,7 @@ def remove_muzea(nazwa):
         del pracownicy[nazwa]
     print(f"Usunięto muzeum {nazwa}")
 
+
 def remove_magazyny(muzeum, nazwa_magazynu):
     if muzeum in magazyny:
         magazyny[muzeum] = [magazyn for magazyn in magazyny[muzeum] if magazyn['nazwa'] != nazwa_magazynu]
@@ -156,12 +168,14 @@ def remove_magazyny(muzeum, nazwa_magazynu):
     else:
         print(f"Nie znaleziono muzeum {muzeum}")
 
+
 def remove_pracownicy(muzeum, pracownik):
     if muzeum in pracownicy:
         pracownicy[muzeum] = [p for p in pracownicy[muzeum] if p != pracownik]
         print(f"Usunięto pracownika {pracownik} z muzeum {muzeum}")
     else:
         print(f"Nie znaleziono muzeum {muzeum}")
+
 
 # Funkcje generujące mapy
 def generate_map_muzea():
@@ -174,6 +188,7 @@ def generate_map_muzea():
         ).add_to(mapa)
     return mapa
 
+
 def generate_map_magazyny():
     mapa = folium.Map(location=[52.2297, 21.0122], zoom_start=12)
     for muzeum in magazyny:
@@ -184,6 +199,7 @@ def generate_map_magazyny():
                 icon=folium.Icon(color='green', icon='info-sign')
             ).add_to(mapa)
     return mapa
+
 
 def generate_map_pracownicy():
     mapa = folium.Map(location=[52.2297, 21.0122], zoom_start=12)
@@ -196,6 +212,7 @@ def generate_map_pracownicy():
                 icon=folium.Icon(color='red', icon='info-sign')
             ).add_to(mapa)
     return mapa
+
 
 def generate_map_all():
     mapa = folium.Map(location=[52.2297, 21.0122], zoom_start=12)
@@ -222,7 +239,7 @@ def generate_map_all():
             ).add_to(mapa)
     return mapa
 
-# Główna funkcja programu
+
 # Główna funkcja programu
 def main():
     if login():
@@ -318,6 +335,6 @@ def main():
             else:
                 print("Nieprawidłowa opcja. Spróbuj ponownie.")
 
+
 if __name__ == "__main__":
     main()
-

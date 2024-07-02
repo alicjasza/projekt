@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_05ad02d6a2a59d6d3a450464626cbbb9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_05ad02d6a2a59d6d3a450464626cbbb9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_05ad02d6a2a59d6d3a450464626cbbb9 = L.map(
+                "map_05ad02d6a2a59d6d3a450464626cbbb9",
+                {
+                    center: [52.2297, 21.0122],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_6e759ef91a989d21e86017baf5cbb894 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_6e759ef91a989d21e86017baf5cbb894.addTo(map_05ad02d6a2a59d6d3a450464626cbbb9);
+        
+    
+            var marker_6bcdd5ad79d04ac611344e60ef9b7174 = L.marker(
+                [52.23199, 21.01859],
+                {}
+            ).addTo(map_05ad02d6a2a59d6d3a450464626cbbb9);
+        
+    
+            var icon_e38fe08a7d7563e612da9fbef63b8625 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_6bcdd5ad79d04ac611344e60ef9b7174.setIcon(icon_e38fe08a7d7563e612da9fbef63b8625);
+        
+    
+        var popup_cd059872c7b168da867fb6154a69e3a2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fc17e505048b109d525f55e9a69290df = $(`<div id="html_fc17e505048b109d525f55e9a69290df" style="width: 100.0%; height: 100.0%;">Pracownicy: Michał Lewandowski, Zofia Kaczmarek</div>`)[0];
+                popup_cd059872c7b168da867fb6154a69e3a2.setContent(html_fc17e505048b109d525f55e9a69290df);
+            
+        
+
+        marker_6bcdd5ad79d04ac611344e60ef9b7174.bindPopup(popup_cd059872c7b168da867fb6154a69e3a2)
+        ;
+
+        
+    
+    
+            var marker_5f5505e4e5faf9e8d73c973d549885d0 = L.marker(
+                [52.2332, 20.9794],
+                {}
+            ).addTo(map_05ad02d6a2a59d6d3a450464626cbbb9);
+        
+    
+            var icon_e7399c81e4f0246453deb1cbca85990c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_5f5505e4e5faf9e8d73c973d549885d0.setIcon(icon_e7399c81e4f0246453deb1cbca85990c);
+        
+    
+        var popup_78292144ed3a61cd38a258029de83cd1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1f55bdc5481ebc6a84acbcfd09dd3f9d = $(`<div id="html_1f55bdc5481ebc6a84acbcfd09dd3f9d" style="width: 100.0%; height: 100.0%;">Pracownicy: Katarzyna Zielińska, Jagoda Kwiatkowska</div>`)[0];
+                popup_78292144ed3a61cd38a258029de83cd1.setContent(html_1f55bdc5481ebc6a84acbcfd09dd3f9d);
+            
+        
+
+        marker_5f5505e4e5faf9e8d73c973d549885d0.bindPopup(popup_78292144ed3a61cd38a258029de83cd1)
+        ;
+
+        
+    
+</script>
+</html>
